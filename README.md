@@ -64,7 +64,7 @@ Notice when you use an @import statement, you don’t need to include the _(unde
 
 You'll notice that the only file that is compiled into CSS is the ```style.scss```. **This is the only file that the compiler will actually turn into CSS in this example because it's the only file that is not a partial.**
 
-#### Variables
+## Variables
 - **Variables** are placeholders for storing information that you want to reuse  throughout your styles
 - You can store things like colors,  font-families, or any css value you think you might want to reuse
 - Sass uses the ```$``` symbol to declare variables
@@ -107,7 +107,7 @@ html {
   font-family: Helvetica, Arial, sans-serif;
 }
 ```
-#### Nesting
+## Nesting
 When writing HTML you've probably noticed that it has a clear nested and visual hierarchy. CSS, on the other hand, doesn't. Sass will let you nest your CSS selectors in a way that follows the same visual hierarchy of your HTML.**Never nest your selectors more than 2 levels deep to avoid overly-specific selectors.**
 
 **In your ```_main.scss``` for example:**
@@ -131,7 +131,7 @@ When writing HTML you've probably noticed that it has a clear nested and visual 
 }
 ```
 
-#### Mixins
+## Mixins
 **Mixins** let you define common properties once, and then re-use them over and over again. Mixins are defined using ```@mixin``` and contains a block of codes and then reuse them using ```@include```.
 
 We place all our mixins for the site in the ```_mixins.scss``` partial: 
