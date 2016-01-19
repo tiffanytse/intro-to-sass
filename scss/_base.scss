@@ -6,11 +6,14 @@ SCSS uses the '$' symbol to declare variables */
 
 // Colors
 $blue: #3498db;
-
-$primary: $blue;
-$secondary: #aaaaaa;
+$dark-blue: #2980b9;
+$grey: #aaaaaa;
+$grey-dark: #666666;
 $white: #fff;
 
+// You can use variables inside variables
+$primary: $blue;
+$secondary: $grey;
 
 // Font Families
 $helvetica: Helvetica, Arial, sans-serif;

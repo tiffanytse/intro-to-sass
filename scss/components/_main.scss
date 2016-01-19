@@ -1,25 +1,29 @@
 html{
-    font-family: $helvetica;
+  font-family: $helvetica;
 }
 
-.primary-btn{
-    @include button($primary, $white, darkblue);
-}
-
+// Nesting
 .border{
-    border: 1px solid #ccc;
-    p{
-        color: red;
-    }
+  border: 1px solid #ccc;
+  p{
+    color: red;
+  }
 }
 
 a{
-    text-decoration: none;
-    &:hover{
-        text-decoration: underline;
-    }
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
+// Mixins
+.primary-btn{
+  @include button($primary, $white, darkblue);
+}
+
+
+// Extend
 ul{
-    @extend .border;
+  @extend .border;
 }
