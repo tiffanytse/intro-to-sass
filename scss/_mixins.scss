@@ -1,0 +1,27 @@
+/*
+    A mixin is similar to a function
+    It has multiple declarations, as well     as can take arguments.
+
+    To declare a mixin
+    @mixin mixin-name
+    
+    To use a mixin 
+    @include mixin-name
+
+    To use a mixin with arguments
+    @include($argument1, $argument2, $argument3)
+*/
+
+@mixin button($background, $font, $hover){
+    background-color: $background;
+    color: $font;
+    padding: .5em 1em;
+    border-radius: 3px;
+    margin: 1em;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 150ms ease-in-out;
+    &:hover{
+        background-color: $hover;
+    }
+}
