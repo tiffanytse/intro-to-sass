@@ -34,6 +34,10 @@ A ```.scss``` file is compiled into ```.css``` using a compiler. This compiler c
 ```
 .scss  ➡  compiler(Prepros/Jekyll)  ➡  .css
 ```
+### Prepros
+To set up prepros simply create your folder structure and import statements first, then drag the  **whole project folder** into Prepros. Prepros should automatically compile your ```style.scss``` file for you into a ```.css``` file.  This will happen once you make a change to any ```.scss``` file in your project - since Prepros is now watching your project folder. 
+
+Also don't forget to include the ```prepros.cfg``` file in your ```.gitignore``` file when commiting to Github. This way you dont commit the created configuration file that Prepros makes to watch your folder for changes. 
 
 ### File Structure & Partials
 We usually break up our styling into modular parts, so that we can find things more easily, and make items reusable.
@@ -52,7 +56,11 @@ css/
 ```
 ---
 ## Partials
- The sass directory contains what are called *partials*, which are .scss files that begin with an ```_``` (underscore). For example: ```_mixins.scss```, ```_base.scss```, and ```_main.scss``` are all partial files. The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file.
+ The sass directory contains what are called *partials*, which are .scss files that begin with an ```_``` (underscore). 
+ 
+For example: ```_mixins.scss```, ```_base.scss```, and ```_main.scss``` are all partial files. 
+
+The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file.
 
 #### Importing Partials
 Partials are **imported** into our ```style.scss``` file using ```@import``` statements.
@@ -63,7 +71,7 @@ Partials are **imported** into our ```style.scss``` file using ```@import``` sta
 @import 'mixins';
 @import 'components/main';
 ```
-Notice when you use an @import statement, you don’t need to include the _(underscore) in the file name that you are importing.
+Notice when you use an ```@import``` statement, you don’t need to include the ```_``` (underscore) in the file name that you are importing.
 
 You'll notice that the only file that is compiled into CSS is the ```style.scss```. **This is the only file that the compiler will actually turn into CSS in this example because it's the only file that is not a partial.**
 
@@ -106,7 +114,7 @@ html{
 ```
 
 **Which would compile to:**
-```scss
+```css
 html {
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -125,14 +133,34 @@ When writing HTML you've probably noticed that it has a clear nested and visual 
 }
 ```
 
-**Would compile to:**
-```scss
+**Which would compile to:**
+```css
 .border{
   border: 1px solid #ccc;
 }
 
 .border p{
   color: red;
+}
+```
+
+**We can also append nested selectors in Sass using the ```&``` symbol just before it:**
+```scss
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+```
+**Which would compile to:**
+```css
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 ```
 ---
@@ -170,9 +198,33 @@ When writing HTML you've probably noticed that it has a clear nested and visual 
 }
 ```
 ---
-## Links
+## Extend
+This is one of the most useful features of Sass. Using ```@extend``` lets you share a set of CSS properties from one selector to another. It helps keep your Sass very [DRY](http://www.vanseodesign.com/css/dry-principles/). 
 
+**In your ```_main.scss``` you might have a class for border, which you can extend to other selectors:**
+```scss
+.border{
+  border: 1px solid #ccc;
+}
+
+// Extend
+ul{
+  @extend .border;
+}
+```
+**Which would compile to:**
+```css
+.border, ul {
+  border: 1px solid #ccc;
+}
+```
+---
+## Helpful Links
 - [Get Started with SASS](http://sass-lang.com/guide)
 - [SASS Extended Documentation](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
 - [How to Structure a SASS Project](http://thesassway.com/beginner/how-to-structure-a-sass-project)
+
+##### Helpful Things for writing Sass
+- [Tiffany's Favourite Base/Mixins](https://github.com/tiffanytse/base-and-mixins)
+- [Getting Started with Sass - Presentation by Tiffany Tse](https://docs.google.com/presentation/d/1wbeYMqc8qfXl4Ngye94adIArUdkinFixTjFv19_FG4A/edit?usp=sharing)
 
