@@ -141,20 +141,20 @@ When writing HTML you've probably noticed that it has a clear nested and visual 
 
 **We place all our mixins for the site in the ```_mixins.scss``` partial, an example of that might be for a button style, optionally you can also pass arguments to mixins so that they are resuable:**
 ```scss
-@mixin button($bg-color){        ⬅︎ The argument passed is in the round brackets
+@mixin button($bg-color){        //⬅︎ The argument passed is in the round brackets
   display: inline-block;
   margin: 1em;
   padding: .5em 1em;
   border-radius: 3px;
   text-decoration: none;
   color: #fff;
-  background: $bg-color;         ⬅︎ It gets used within the mixin here
+  background: $bg-color;         //⬅︎ It gets used within the mixin here
 }
 ```
 **Then you can use the mixin in your ```_main.scss```:**
 ```scss
 .primary-btn{
-  @include button(#2980b9);   ⬅︎ When we use the mixin we need to give it a bg-color
+  @include button(#2980b9);   //⬅︎ When we use the mixin we need to give it a bg-color
 }
 ```
 **Which would compile to:**
@@ -166,7 +166,7 @@ When writing HTML you've probably noticed that it has a clear nested and visual 
   border-radius: 3px;
   text-decoration: none;
   color: #fff;
-  background: #2980b9;       ⬅︎ This is where that color argument outputs
+  background: #2980b9;       //⬅︎ This is where that color argument outputs
 }
 ```
 ---
