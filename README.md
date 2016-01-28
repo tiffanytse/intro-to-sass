@@ -37,7 +37,7 @@ A ```.scss``` file is compiled into ```.css``` using a compiler. This compiler c
 ### Prepros
 To set up prepros simply create your folder structure and import statements first, then drag the  **whole project folder** into Prepros. Prepros should automatically compile your ```style.scss``` file for you into a ```.css``` file.  This will happen once you make a change to any ```.scss``` file in your project - since Prepros is now watching your project folder. 
 
-Also don't forget to include the ```prepros.cfg``` file in your ```.gitignore``` file when commiting to Github. This way you dont commit the created configuration file that Prepros makes to watch your folder for changes. 
+Also don't forget to include the ```prepros.cfg``` and ```*.css.map``` file in your ```.gitignore``` file when commiting to Github. This way you dont commit the created configuration file that Prepros makes to watch your folder for changes. 
 
 ### File Structure & Partials
 We usually break up our styling into modular parts, so that we can find things more easily, and make items reusable.
